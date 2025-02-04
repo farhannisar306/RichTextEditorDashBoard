@@ -1,12 +1,5 @@
 import { motion } from 'framer-motion'
-
-interface LogoProps {
-  size?: {
-    dev_text: number;
-    talks_text: number;
-  };
-  unit?: string; // Default unit hobe rem
-}
+import { LogoProps } from '../Interfaces/LogoProps';
 
 const Logo = ({ size = { dev_text: 1, talks_text: 2 }, unit = 'rem' }: LogoProps) => {
   // Custom size thakle size calculation howar part

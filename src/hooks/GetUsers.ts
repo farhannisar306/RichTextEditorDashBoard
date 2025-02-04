@@ -1,12 +1,15 @@
 import { useQuery } from '@tanstack/react-query'
 import { QueryService } from '../Services/QueryService'
+import { base_url } from '../static/data'
 
+
+//`${base_url}/articles`
 export const GetUsers = () => {
   const { isLoading, isError, data: rawData, error } = useQuery({
     refetchOnWindowFocus: false,
     queryKey: ['users'],
     queryFn: () => QueryService({
-      QueryURL: "https://devtalks-backend.onrender.com/api/v1/user",
+      QueryURL: `${base_url}/user`,
       Method: "GET",
       Body: undefined
     }),

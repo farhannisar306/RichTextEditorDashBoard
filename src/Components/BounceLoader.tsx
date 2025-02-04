@@ -1,12 +1,8 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
+import { BounceLoaderProps } from '../Interfaces/BounceLoaderProps'
 
-interface BounceLoaderProps {
-  size?: number
-  color?: string
-  duration?: number
-}
 
 const BounceLoader: React.FC<BounceLoaderProps> = ({
   size = 40,

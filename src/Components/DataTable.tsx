@@ -1,30 +1,13 @@
 import { motion } from "framer-motion";
-import { Check, Star, ChevronUp, ChevronDown, ChevronLeft, ChevronRight, X, Edit2, Trash2 } from 'lucide-react';
+import {ChevronUp, ChevronDown, ChevronLeft, ChevronRight, X, Edit2, Trash2 } from 'lucide-react';
 import { useMemo, useState } from "react";
 import Searchbar from "./Searchbar";
-import { format } from 'date-fns';
 import ColumnSelector from './ColumnSelector';
+import { Column } from "../Interfaces/ColumnProps";
+import { DataTableProps } from "../Interfaces/DataTableProps";
+import { defaultPagesize } from "../static/data";
+import { pageSideOptions } from "../static/data";
 
-interface Column {
-    key: string;
-    label?: string;
-    render?: (value: any, row: any, column: Column) => React.ReactNode;
-    sortable?: boolean;
-    filterable?: boolean;
-    visible?: boolean;
-    isEditable?: boolean;
-}
-
-interface DataTableProps<T> {
-    data: T[];
-    columns: Column[];
-    onEdit?: (row: T) => void;
-    onDelete?: (selectedRows: T[]) => void;
-    pageSize?: number;
-    pageSizeOptions?: number[];
-    className?: string;
-    actions?: boolean;
-}
 
 const defaultRenderCell = (value: any, row: any, column: Column) => {
     return column.render ? column.render(value, row, column) : value?.toString() || '';
@@ -35,8 +18,8 @@ export function DataTable<T extends { id: string | number }>({
     columns,
     onEdit,
     onDelete,
-    pageSize: initialPageSize = 10,
-    pageSizeOptions = [5, 10, 20, 50, 100],
+    pageSize: initialPageSize = defaultPagesize,
+    pageSizeOptions = pageSideOptions,
     className = "",
     actions,
 }: DataTableProps<T>) {

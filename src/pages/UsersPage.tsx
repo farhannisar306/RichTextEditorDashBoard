@@ -4,7 +4,7 @@ import Modal from '../Components/Modal';
 import DynamicEditForm from '../Components/DynamicEditForm';
 import { GetUsers } from '../hooks/GetUsers';
 import BounceLoader from '../Components/BounceLoader';
-import { columns } from '../static/UserColumns';
+import { columns } from '../DataTableColumns/UserColumns';
 
 
 export const UsersPage = () => {
@@ -37,8 +37,6 @@ export const UsersPage = () => {
                 columns={columns}
                 onEdit={handleEdit}
                 onDelete={handleDelete}
-                pageSize={10}
-                pageSizeOptions={[5, 10, 20, 50, 100]}
                 actions={true}
             />
 

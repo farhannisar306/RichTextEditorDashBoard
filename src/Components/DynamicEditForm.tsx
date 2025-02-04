@@ -2,14 +2,7 @@ import React from 'react';
 import { splitStringByCaseAutomatically } from '../Services/StringManipulator_Splitters';
 import { useUpdateUser } from '../hooks/UpdateUser';
 import { useUpdateArticle } from '../hooks/UpdateArticle';
-
-interface DynamicEditFormProps {
-    type: string;
-    data: any;
-    columns: any[];
-    onSave: (updatedData: any) => void;
-    onCancel: () => void;
-}
+import { DynamicEditFormProps } from '../Interfaces/DynamicEditFormProps';
 
 const DynamicEditForm: React.FC<DynamicEditFormProps> = ({ data, columns, onCancel, type, onSave }) => {
     const [formData, setFormData] = React.useState(data);

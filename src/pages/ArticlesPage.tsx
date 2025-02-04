@@ -1,10 +1,8 @@
 import { DataTable } from '../Components/DataTable';
 import { useState } from 'react';
-import Modal from '../Components/Modal';
-import DynamicEditForm from '../Components/DynamicEditForm';
 import { GetArticles } from '../hooks/GetArticles';
 import BounceLoader from '../Components/BounceLoader';
-import { columns } from '../static/ArticleColumns';
+import { columns } from '../DataTableColumns/ArticleColumns';
 
 const ArticlesPage = () => {
     const { isLoading, isError, data } = GetArticles();
@@ -28,8 +26,6 @@ const ArticlesPage = () => {
     if(isLoading) return <BounceLoader />;
     if(isError) return <div className="text-red-600">Error loading articles</div>;
 
-    // data && console.log(data.data)
-
     return (
         <div className="h-full">
             <DataTable
@@ -41,22 +37,6 @@ const ArticlesPage = () => {
                 pageSizeOptions={[5, 10, 20, 50, 100]}
                 actions={false}
             />
-
-            {/* <Modal
-                isOpen={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
-                title={`Edit ${selectedArticle?.title || 'Article'}`}
-            >
-                {selectedArticle && (
-                    <DynamicEditForm
-                        type="articlesInfoEdit"
-                        data={selectedArticle}
-                        columns={columns}
-                        onSave={handleSave}
-                        onCancel={() => setIsModalOpen(false)}
-                    />
-                )}
-            </Modal> */}
         </div>
     );
 };

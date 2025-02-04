@@ -1,11 +1,7 @@
 import { Check, Settings2 } from 'lucide-react';
 import { useState } from 'react';
+import { ColumnSelectorProps } from '../Interfaces/ColumnSelectorProps';
 
-interface ColumnSelectorProps {
-    columns: Column[];
-    visibleColumns: string[];
-    onColumnToggle: (columnKey: string) => void;
-}
 
 const ColumnSelector = ({ columns, visibleColumns, onColumnToggle }: ColumnSelectorProps) => {
     const [isOpen, setIsOpen] = useState(false);
