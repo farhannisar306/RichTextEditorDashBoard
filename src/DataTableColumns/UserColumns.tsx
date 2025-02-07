@@ -1,5 +1,3 @@
-import { format } from 'date-fns';
-import { Check, X } from 'lucide-react';
 import { defaultCellRenderer } from '../utils/cellRenderers';
 
 export const columns = [

@@ -1,5 +1,5 @@
 import Logo from '../Logo'
-import { Home, User, FileText, Settings } from 'lucide-react'
+import { Home, User, FileText } from 'lucide-react'
 import { ReusableNavLink } from '../../widgets/ReusableNavLink'
 
 const Sidebar = () => {

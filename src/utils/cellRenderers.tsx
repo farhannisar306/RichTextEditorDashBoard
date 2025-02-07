@@ -1,7 +1,7 @@
 import { format } from 'date-fns';
 import { Check, X } from 'lucide-react';
 
-export const defaultCellRenderer = ({ value, key, row, column }: { value: any, key: string, row: any, column: any }) => {
+export const defaultCellRenderer = ({ value, key}: { value: any, key: string, row?: any, column?: any }) => {
     if (typeof value === 'boolean') {
         const booleanStyle = {
             true: 'bg-green-100 text-green-800',

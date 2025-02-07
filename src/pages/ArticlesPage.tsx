@@ -12,15 +12,11 @@ const ArticlesPage = () => {
     const handleEdit = (article: any) => {
         setSelectedArticle(article);
         setIsModalOpen(true);
+        console.log(typeof selectedArticle)
+        console.log(isModalOpen)
     };
-
     const handleDelete = (articles: any[]) => {
         console.log('Deleting articles:', articles);
-    };
-
-    const handleSave = (updatedArticle: any) => {
-        console.log('Saving article:', updatedArticle);
-        setIsModalOpen(false);
     };
 
     if(isLoading) return <BounceLoader />;

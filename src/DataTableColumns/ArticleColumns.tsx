@@ -1,5 +1,3 @@
-import { format } from 'date-fns';
-import { Check, X } from 'lucide-react';
 import { defaultCellRenderer } from '../utils/cellRenderers';
 
 export const columns = [
@@ -15,7 +13,7 @@ export const columns = [
         label: 'Author',
         isEditable: false,
         sortable: true,
-        render: (value: any, row: any, column: any) => value?.name || 'Unknown'
+        render: (value: any) => value?.name || 'Unknown'
     },
     {
         key: 'title',
@@ -29,7 +27,7 @@ export const columns = [
         label: 'Content',
         isEditable: true,
         sortable: true,
-        render: (value: any, row: any, column: any) => value?.replace(/<[^>]*>/g, '').slice(0, 30) + '...' || 'No content'
+        render: (value: any) => value?.replace(/<[^>]*>/g, '').slice(0, 30) + '...' || 'No content'
     },
     {
         key: 'views',
@@ -71,20 +69,20 @@ export const columns = [
         label: 'Reading Time',
         isEditable: false,
         sortable: true,
-        render: (value: any, row: any, column: any) => `${value} min`
+        render: (value: any) => `${value} min`
     },
     {
         key: 'likes',
         label: 'Likes',
         isEditable: false,
         sortable: true,
-        render: (value: any[], row: any, column: any) => value?.length.toString() || '0'
+        render: (value: any[]) => value?.length.toString() || '0'
     },
     {
         key: 'comments',
         label: 'Comments',
         isEditable: false,
         sortable: true,
-        render: (value: any[], row: any, column: any) => value?.length.toString() || '0'
+        render: (value: any[]) => value?.length.toString() || '0'
     }
 ]; 

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import {ChevronUp, ChevronDown, ChevronLeft, ChevronRight, X, Edit2, Trash2 } from 'lucide-react';
+import {ChevronUp, ChevronDown, ChevronLeft, ChevronRight, Edit2, Trash2 } from 'lucide-react';
 import { useMemo, useState } from "react";
 import Searchbar from "./Searchbar";
 import ColumnSelector from './ColumnSelector';
@@ -26,7 +26,7 @@ export function DataTable<T extends { id: string | number }>({
     const [currentPage, setCurrentPage] = useState(1);
     const [pageSize, setPageSize] = useState(initialPageSize);
     const [sortConfig, setSortConfig] = useState<{ key: string; direction: 'asc' | 'desc' } | null>(null);
-    const [filters, setFilters] = useState<{ [key: string]: string }>({});
+    const [filters] = useState<{ [key: string]: string }>({});
     const [globalSearchTerm, setGlobalSearchTerm] = useState("");
     const [selectedRows, setSelectedRows] = useState<T[]>([]);
     const [visibleColumns, setVisibleColumns] = useState(
